@@ -1,0 +1,50 @@
+<div class="relative">
+  <div class="flex flex-row">
+    <div class="mr-8">
+      <label
+        for="heroes"
+        class="block mb-2 ml-2 text-sm font-medium text-gray-900"
+        >Select first hero</label
+      >
+      <select
+        id="heroes"
+        class="relative bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        (change)="setFirstHero($event)"
+        appSpy
+      >
+        @for (hero of heroNames; track hero) {
+          <option value="{{ hero }}">{{ hero }}</option>
+        }
+      </select>
+    </div>
+    <div>
+      <label
+        for="heroes"
+        class="block mb-2 ml-2 text-sm font-medium text-gray-900"
+        >Select second hero</label
+      >
+      <select
+        id="heroes"
+        class="relative bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        (change)="setSecondHero($event)"
+        appSpy
+      >
+        @for (hero of heroNames; track hero) {
+          <option value="{{ hero }}">{{ hero }}</option>
+        }
+      </select>
+    </div>
+  </div>
+  <button
+    class="mt-8 rounded-lg bg-orange-500 hover:bg-orange-700 p-2 text-white text-sm px-4 font-bold"
+    (click)="fight()"
+  >
+    FIGHT !
+  </button>
+  @if (heroWinner) {
+    <div class="mt-8">
+      <h2 class="text-2xl font-bold">The winner is: {{ heroWinner.name }}</h2>
+      <app-hero-details [hero]="heroWinner"></app-hero-details>
+    </div>
+  }
+</div>

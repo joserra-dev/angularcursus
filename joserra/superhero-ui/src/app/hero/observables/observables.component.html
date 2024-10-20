@@ -1,0 +1,14 @@
+<div class="relative">
+  <h1 class="text-bold text-xl">Current hero</h1>
+
+  @if (currentHero) {
+    Current hero is: {{ currentHero.name }}
+    <img
+      [src]="currentHero.image.url"
+      alt="Hero image"
+      class="w-44 h-52 mt-4"
+    />
+  } @else {
+    No hero selected
+  }
+</div>

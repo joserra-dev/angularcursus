@@ -1,0 +1,52 @@
+<div class="relative">
+  <div>
+    <ng-container>Super hero name</ng-container>
+    <input
+      type="text"
+      id="hero_name"
+      class="bg-gray-700 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5"
+      placeholder="Nombre del super hero..."
+      [formControl]="heroForm.controls.name"
+    />
+  </div>
+  <div class="mt-4">
+    <ng-container>Real name</ng-container>
+    <input
+      type="text"
+      id="real_name"
+      class="bg-gray-700 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5"
+      placeholder="Nombre real del super hero..."
+      [formControl]="heroForm.controls.realName"
+    />
+  </div>
+  <div class="mt-4">
+    <ng-container>Power</ng-container>
+    <input
+      type="number"
+      id="hero_power"
+      class="bg-gray-700 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5"
+      placeholder="Poder del super hero..."
+      [formControl]="heroForm.controls.power"
+    />
+  </div>
+  @if (heroForm.controls.power.hasError("powerLessThan")) {
+    <p class="mt-2 text-sm text-red-600">
+      <span class="font-medium">Power must be less or equal than 100</span>
+    </p>
+  }
+  <button
+    type="button"
+    class="mt-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 disabled:bg-blue-400"
+    (click)="saveHero()"
+    [disabled]="heroForm.invalid"
+  >
+    Save
+  </button>
+  <button
+    type="button"
+    class="ml-2 text-white bg-orange-700 hover:bg-orange-800 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
+    (click)="clearForm()"
+  >
+    Reset Form
+  </button>
+</div>

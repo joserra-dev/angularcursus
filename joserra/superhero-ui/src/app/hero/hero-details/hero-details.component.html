@@ -1,0 +1,36 @@
+<div class="flex flex-row mt-8">
+  <ul>
+    <li><span class="font-bold">Name:</span> {{ hero.name }}</li>
+    <li><span class="font-bold">Combat:</span> {{ hero.powerstats.combat }}</li>
+    <li>
+      <span class="font-bold">Intelligence:</span>
+      {{ hero.powerstats.intelligence }}
+    </li>
+  </ul>
+
+  <ul class="ml-16">
+    <li>
+      <span class="font-bold">Durability:</span>
+      {{ hero.powerstats.durability }}
+    </li>
+    <li><span class="font-bold">Speed:</span> {{ hero.powerstats.speed }}</li>
+    <li><span class="font-bold">Power:</span> {{ hero.powerstats.power }}</li>
+  </ul>
+
+  <ul class="ml-16">
+    <li>
+      <span class="font-bold">Work:</span>
+      {{ hero.work.occupation | transformHeroInfo }}
+    </li>
+    <li>
+      <span class="font-bold">Relatives:</span>
+      {{ hero.connections.relatives | transformHeroInfo }}
+    </li>
+    <li>
+      <span class="font-bold">Connections:</span>
+      {{ hero.connections["group-affiliation"] | transformHeroInfo }}
+    </li>
+  </ul>
+</div>
+
+<img class="mt-4 relative w-44 h-52" [src]="hero.image.url" [alt]="hero.name" />

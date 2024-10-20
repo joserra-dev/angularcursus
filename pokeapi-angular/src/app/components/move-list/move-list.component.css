@@ -1,0 +1,68 @@
+.container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 2em;
+}
+
+.content {
+  width: calc(100% - 4%);
+  margin: 2%;
+}
+
+h1 {
+  font-size: 30px;
+  text-align: center;
+}
+
+p {
+  font-weight: bold;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: -2em;
+}
+
+table {
+  width: 100%;
+}
+
+tr.detail-row {
+  height: 0;
+}
+
+tr.element-row:not(.expanded-row):hover {
+  background: whitesmoke;
+}
+
+tr.element-row:not(.expanded-row):active {
+  background: #efefef;
+}
+
+.element-row td {
+  border-bottom-width: 0;
+}
+
+.element-description {
+  padding: 16px;
+}
+
+.element-description-attribution {
+  opacity: 0.5;
+}
+
+.element-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.expand-cell {
+  position: relative;
+}
+
+.expand-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+}

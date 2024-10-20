@@ -1,0 +1,33 @@
+<div class="relative">
+  <h1 class="text-2xl font-bold mb-4">Hero Cards</h1>
+  <label for="heroes" class="block mb-2 ml-2 text-sm font-medium text-gray-900"
+    >Select a hero</label
+  >
+  <select
+    id="heroes"
+    class="relative bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+    (change)="setHero($event)"
+    appSpy
+  >
+    @for (hero of heroNames; track hero) {
+      <option value="{{ hero }}">{{ hero }}</option>
+    }
+  </select>
+  @if (selectedHero) {
+    <app-hero-card>
+      <img
+        image
+        class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"
+        [src]="selectedHero.image.url"
+        alt=""
+      />
+      <h5 title class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+        {{ selectedHero.name }}
+      </h5>
+
+      <p description class="mb-3 font-normal text-gray-700">
+        {{ selectedHero.work.occupation }}
+      </p>
+    </app-hero-card>
+  }
+</div>

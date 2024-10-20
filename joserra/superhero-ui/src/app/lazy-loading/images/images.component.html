@@ -1,0 +1,13 @@
+<div class="flex flex-row gap-8">
+  <img [src]="nonLazyImage" alt="non-lazy" class="h-52 w-44" />
+
+  @defer (when lazyImage) {
+    <img [src]="lazyImage" alt="lazy" class="h-52 w-44" />
+  } @placeholder {
+    <img
+      src="https://www.wpfaster.org/wp-content/uploads/2013/06/loading-gif.gif"
+      alt="loading"
+      class="h-20 w-20"
+    />
+  }
+</div>
